@@ -1,4 +1,5 @@
 package com.ifmo.lesson2;
+//import java.util.math;
 
 public class ClosestToTen {
     /*
@@ -16,7 +17,12 @@ public class ClosestToTen {
 
     public static float closestToTen(float m, float n) {
         // TODO implement
-
-        return 0;
+        float difN=10-n; //разница между числом и 10
+        float difM=10-m;
+        if (difN < 0) difN=difN*(-1); //если отриц беру модуль
+        if (difM < 0) difM=difM*(-1);
+        if (difM< difN)  //сравниваю модули
+            return difM;
+        else  return difN;
     }
 }
