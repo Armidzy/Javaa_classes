@@ -8,5 +8,16 @@ public class Fibonacci {
      */
     public static void main(String[] args) {
         // TODO implement
+        int pred=1;
+        int current=1;
+        int help;
+        System.out.println(1);
+        System.out.println(1);
+        for (int i=1; i <11; i++){
+            help=current;
+            current += pred ;
+            System.out.println(current);
+            pred=help;
+        }
     }
 }

@@ -18,7 +18,9 @@ public class DigitsSum {
     }
 
     public static int digitSum(int n) {
-        // TODO implement
+        // TODO implement  nope
+        //String str= Integer.toString(n);
+        //int numlenght= str.length();
 
         return 0;
     }

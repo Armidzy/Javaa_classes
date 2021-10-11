@@ -7,5 +7,10 @@ public class NonNegativeSequence {
      */
     public static void main(String[] args) {
         // TODO implement
+        int n=90;
+        do{
+            System.out.println(n);
+            n-=5;
+        }while (n>0);
     }
 }

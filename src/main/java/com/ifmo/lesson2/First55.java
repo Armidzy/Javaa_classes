@@ -6,5 +6,11 @@ public class First55 {
      */
     public static void main(String[] args) {
         // TODO implement
+        int ans=1;
+        System.out.println(ans);
+        for (int i=0; i< 55; i++){
+            ans+=2;
+            System.out.println(ans);
+        }
     }
 }

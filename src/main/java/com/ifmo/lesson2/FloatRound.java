@@ -14,7 +14,7 @@ public class FloatRound {
     }
 
     public static float round(float n) {
-        // TODO implement
+        // TODO implement дописать dijitsum
 
         return 0;
     }
