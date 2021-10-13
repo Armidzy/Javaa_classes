@@ -18,7 +18,6 @@ public class Factorial {
     }
 
     public static long factorial(int n) {
-        // TODO implement
         int factorial=1;
         for (int i =1; i<n; i++)
             factorial=factorial*i;

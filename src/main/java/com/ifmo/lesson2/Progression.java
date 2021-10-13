@@ -7,5 +7,11 @@ public class Progression {
      */
     public static void main(String[] args) {
         // TODO implement
+        int n=1000;
+        while (n <10000){
+            System.out.println(n);
+            n+=3;
+        }
+
     }
 }

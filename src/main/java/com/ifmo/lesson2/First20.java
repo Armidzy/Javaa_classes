@@ -6,9 +6,8 @@ public class First20 {
      16 32 64 128 ….
      */
     public static void main(String[] args) {
-        // TODO implement
         for (int i =1; i <=20; i++) {
-            System.out.println(2^i);
+            System.out.println(Math.pow(2, i));
         }
     }
 }

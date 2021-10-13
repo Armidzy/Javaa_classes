@@ -20,13 +20,11 @@ public class IsInInterval {
     }
 
     public static int randomInt() {
-        // TODO implement
         Random random = new Random();
         return random.nextInt(150) + 5;
     }
 
     public static String isInInterval(int rnd) {
-        // TODO implement
         if (rnd >= 25 && rnd <= 100)
             return "Число "+ rnd +" содержится в интервале (25,100)";
         else return "Число "+ rnd +" не содержится в интервале (25,100)";

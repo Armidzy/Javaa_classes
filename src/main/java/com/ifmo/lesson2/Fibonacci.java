@@ -7,7 +7,6 @@ public class Fibonacci {
      двух предыдущих.
      */
     public static void main(String[] args) {
-        // TODO implement
         int pred=1;
         int current=1;
         int help;

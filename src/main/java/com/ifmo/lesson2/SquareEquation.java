@@ -23,7 +23,17 @@ public class SquareEquation {
      */
     public static double[] squareEquationRoots(double a, double b, double c) {
         // TODO implement
-
-        return null;
+        double Discriminant= Math.pow(b, 2) - 4*a*c;
+        double[] roots= new double[2];
+        if (Discriminant < 0)
+            return null;
+        /*else if (Discriminant == 0){
+            roots1[0]=-b/(2*a);
+            return roots1;}*/
+        else{
+            roots[0]=-b+Math.sqrt(Discriminant)/(2*a);
+            roots[1]=-b-Math.sqrt(Discriminant)/(2*a);
+            return roots;
+        }
     }
 }
