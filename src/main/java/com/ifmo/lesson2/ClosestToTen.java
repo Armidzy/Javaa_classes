@@ -12,17 +12,16 @@ public class ClosestToTen {
 
         float closestToTen = closestToTen(m, n);
 
-        System.out.println(closestToTen);
+        System.out.println("Ближайшее к 10 число " + closestToTen);
     }
 
     public static float closestToTen(float m, float n) {
-        // TODO implement
         float difN=10-n; //разница между числом и 10
         float difM=10-m;
         if (difN < 0) difN=difN*(-1); //если отриц беру модуль
         if (difM < 0) difM=difM*(-1);
         if (difM< difN)  //сравниваю модули
-            return difM;
-        else  return difN;
+            return m;
+        else  return n;
     }
 }

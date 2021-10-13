@@ -24,8 +24,6 @@ public class BiggestInRandom {
     }
 
     public static String largestDigit(int rnd) {
-        // TODO implement
-
         int max = 0;
         int a, b, c;
         a= rnd % 10;
