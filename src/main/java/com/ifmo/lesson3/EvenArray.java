@@ -10,12 +10,27 @@ public class EvenArray {
     public static void main(String[] args) {
         int[] evenArray = evenArray();
 
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < 10; i++) {
+            sb.append(evenArray[i]).append(" ");
+        }
+        System.out.println( sb.toString());
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(evenArray[i]);
+        }
+
         // TODO implement
     }
 
     public static int[] evenArray() {
         // TODO implement
-
-        return new int[0];
+        int[] evenArray = new int[10];
+        evenArray[0]=2;
+        for (int i = 1; i < 10; i++) {
+            evenArray[i]=evenArray[i-1]+2;
+        }
+        return evenArray;
     }
 }
