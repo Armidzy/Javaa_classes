@@ -10,6 +10,6 @@ public class NonNegativeSequence {
         do{
             System.out.println(n);
             n-=5;
-        }while (n>0);
+        }while (n>=0);
     }
 }

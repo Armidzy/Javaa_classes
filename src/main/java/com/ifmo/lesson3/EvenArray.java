@@ -21,11 +21,9 @@ public class EvenArray {
             System.out.println(evenArray[i]);
         }
 
-        // TODO implement
     }
 
     public static int[] evenArray() {
-        // TODO implement
         int[] evenArray = new int[10];
         evenArray[0]=2;
         for (int i = 1; i < 10; i++) {
