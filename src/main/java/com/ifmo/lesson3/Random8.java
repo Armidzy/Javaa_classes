@@ -1,4 +1,5 @@
 package com.ifmo.lesson3;
+import java.util.Random;
 
 public class Random8 {
     /*
@@ -9,22 +10,38 @@ public class Random8 {
     public static void main(String[] args) {
         int[] randomNumbers = randomNumbers();
 
-        // TODO implement
+        arrayoutput(randomNumbers);
 
         int[] replacedWithZeros = replaceWithZeros(randomNumbers);
 
-        // TODO implement
+        arrayoutput(replacedWithZeros);
     }
 
     public static int[] randomNumbers() {
-        // TODO implement
+        Random random = new Random();
+        int[] arr= new int[8];
+        for (int i = 0; i < 8; i++) {
+            arr[i]=random.nextInt(9)+1;
+        }
 
-        return new int[0];
+        return arr;
     }
 
     public static int[] replaceWithZeros(int[] randomNumbers) {
         // TODO implement
+        int[] neewarr= randomNumbers.clone();
+        for (int i = 0; i < 8; i++) {
+            if (i % 2 != 0 && i != 0)
+                neewarr[i]=0;
+        }
+        return neewarr;
+    }
 
-        return new int[0];
+    public static void arrayoutput(int[] randomNumbers) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            sb.append(randomNumbers[i]).append(" ");
+        }
+        System.out.println(sb.toString());
     }
 }
