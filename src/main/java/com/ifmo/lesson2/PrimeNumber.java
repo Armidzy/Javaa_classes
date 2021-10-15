@@ -29,6 +29,8 @@ public class PrimeNumber {
             if (n % i == 0)
                 count++;
         }
+        if (n ==2 || n==1)
+            return true;
         if (n != 1 && count > 0)
             return true;
         return false;
