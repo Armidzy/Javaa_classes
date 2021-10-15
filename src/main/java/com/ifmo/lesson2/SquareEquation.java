@@ -31,8 +31,8 @@ public class SquareEquation {
             roots1[0]=-b/(2*a);
             return roots1;}*/
         else{
-            roots[0]=-b+Math.sqrt(Discriminant)/(2*a);
-            roots[1]=-b-Math.sqrt(Discriminant)/(2*a);
+            roots[0]=(-b+Math.sqrt(Discriminant))/(2*a);
+            roots[1]=(-b-Math.sqrt(Discriminant))/(2*a);
             return roots;
         }
     }

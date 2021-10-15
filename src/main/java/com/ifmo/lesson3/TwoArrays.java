@@ -1,4 +1,5 @@
 package com.ifmo.lesson3;
+import java.util.Random;
 
 public class TwoArrays {
     /*
@@ -11,23 +12,43 @@ public class TwoArrays {
         int[] randomNumbers1 = randomNumbers();
         int[] randomNumbers2 = randomNumbers();
 
-        // TODO implement
+        arrayoutput(randomNumbers1);
+        arrayoutput(randomNumbers2);
 
         int average1 = average(randomNumbers1);
         int average2 = average(randomNumbers2);
 
-        // TODO implement
+
+        System.out.println(average1);
+        System.out.println(average2);
     }
 
     public static int[] randomNumbers() {
-        // TODO implement
+        Random random = new Random();
 
-        return new int[0];
+        int[] mas=new int[5];
+        for (int i = 0; i < 5; i++) {
+            mas[i]= random.nextInt(5);
+        }
+        return mas;
     }
 
     public static int average(int[] randomNumbers) {
         // TODO implement
+        int arrSum= 0;
+        for (int i = 0; i < 5; i++) {
+            arrSum+= randomNumbers[i];
+        }
 
-        return 0;
+        return arrSum/5;
     }
+
+    public static void arrayoutput(int[] randomNumbers) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 5; i++) {
+            sb.append(randomNumbers[i]).append(" ");
+        }
+        System.out.println(sb.toString());
+    }
+
 }
