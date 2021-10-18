@@ -13,12 +13,24 @@ public class SymmetricClocks {
     public static int symmetricTimes() {
         // TODO implement
         int count=0;
-        for (int i = 0; i < 23; i++) {   //часы
-            for (int j = 0; j < 59; j++) { //минуты
-                String str1=reverseString(Integer.toString(i));
-                String str2=Integer.toString(j);
-                if (str1.equals(str2))
+        for (int i = 0; i <= 23; i++) {   //часы
+            for (int j = 0; j <= 59; j++) { //минуты
+                String str1;
+                String str2;
+
+                if (i < 10)
+                    str1=reverseString("0" + Integer.toString(i));
+                else
+                    str1=reverseString(Integer.toString(i));
+                if (j< 10)
+                    str2="0" + Integer.toString(j);
+                else
+                    str2=Integer.toString(j);
+
+                if (str1.equals(str2)) {
                     count++;
+                    System.out.println(i + "  " + j);
+                }
             }
         }
 
