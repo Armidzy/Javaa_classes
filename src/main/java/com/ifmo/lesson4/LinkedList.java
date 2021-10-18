@@ -58,19 +58,24 @@ public class LinkedList {
      * @return Удаленное значение или {@code null}, если не найдено.
      */
     public Object remove(int i) {
-        // TODO implement
         Item current = head;
         if (head == null)
             return null;
-        for (int j = 0; j < i; j++) {
-            //System.out.println(i);
-            if (current.next != null)
-                current= current.next;
-            else
-                break;
+        if (i ==1){
+            Item del = head;
+            head=head.next;
+            return del.value;
         }
-        Item del = current.next;
-        current.next = del.next;
-        return del.value;
+        else {
+            for (int j = 1; j < i-1; j++) {
+                if (current.next != null && j != i)
+                    current= current.next;
+                else
+                    return  null;
+            }
+            Item del = current.next;
+            current.next = del.next;
+            return del.value;
+        }
     }
 }
