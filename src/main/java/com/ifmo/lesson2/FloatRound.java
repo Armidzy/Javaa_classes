@@ -14,8 +14,14 @@ public class FloatRound {
     }
 
     public static float round(float n) {
-        // TODO implement дописать dijitsum
+        float remainder = n % 1;
+        int rounded;
+        //System.out.println(remainder);
+        if (remainder >= 0.5F)
+            rounded=(int)n+1;
+        else
+            rounded = (int)n;
 
-        return 0;
+        return rounded;
     }
 }
