@@ -62,7 +62,7 @@ public class LinkedList {
         Item current = head;
         if (head == null)
             return null;
-        for (int j = 0; j < i-1; j++) {
+        for (int j = 0; j < i; j++) {
             //System.out.println(i);
             if (current.next != null)
                 current= current.next;
