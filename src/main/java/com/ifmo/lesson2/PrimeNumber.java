@@ -31,7 +31,7 @@ public class PrimeNumber {
         }
         if (n ==2)
             return true;
-        if (n != 1 && count > 0)
+        if (n != 1 && count <= 1)
             return true;
         return false;
     }
