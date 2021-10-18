@@ -61,13 +61,13 @@ public class LinkedList {
         Item current = head;
         if (head == null)
             return null;
-        if (i ==1){
+        if (i ==0){
             Item del = head;
             head=head.next;
             return del.value;
         }
         else {
-            for (int j = 1; j < i-1; j++) {
+            for (int j = 0; j < i-1; j++) {
                 if (current.next != null && j != i)
                     current= current.next;
                 else

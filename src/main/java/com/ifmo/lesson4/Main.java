@@ -6,15 +6,15 @@ public class Main {
         System.out.println("Empty list");
         printlist(list, 3);
 
+        list.add("row0");
         list.add("row1");
         list.add("row2");
-        list.add("row3");
 
         System.out.println("3 items in list");
         printlist(list, 3);
 
         System.out.println("1 item removed");
-        Object removed = list.remove(1);
+        Object removed = list.remove(0);
         System.out.println("Removed " + removed);
         printlist(list, 3);
 
