@@ -52,7 +52,7 @@ public class WallClock {
             case 0:
                 return "Осталось менее часа";
             case 1:
-                return "Остался час";
+                return "Остался 1 час";
             case 2:
                 return "Осталось 2 часа";
             case 3:
