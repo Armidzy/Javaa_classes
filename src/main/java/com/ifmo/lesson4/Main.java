@@ -14,7 +14,7 @@ public class Main {
         printlist(list, 3);
 
         System.out.println("1 item removed");
-        Object removed = list.remove(0);
+        Object removed = list.remove(2);
         System.out.println("Removed " + removed);
         printlist(list, 3);
 

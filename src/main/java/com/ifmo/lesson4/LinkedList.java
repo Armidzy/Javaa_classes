@@ -68,7 +68,7 @@ public class LinkedList {
         }
         else {
             for (int j = 0; j < i-1; j++) {
-                if (current.next != null && j != i)
+                if (current.next != null)
                     current= current.next;
                 else
                     return  null;
