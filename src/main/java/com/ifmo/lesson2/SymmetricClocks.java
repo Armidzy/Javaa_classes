@@ -12,7 +12,22 @@ public class SymmetricClocks {
 
     public static int symmetricTimes() {
         // TODO implement
+        int count=0;
+        for (int i = 0; i < 23; i++) {   //часы
+            for (int j = 0; j < 59; j++) { //минуты
+                String str1=reverseString(Integer.toString(i));
+                String str2=Integer.toString(j);
+                if (str1.equals(str2))
+                    count++;
+            }
+        }
 
-        return 0;
+        return count;
+    }
+
+    public static String reverseString(String str){
+        StringBuilder sb=new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
     }
 }
