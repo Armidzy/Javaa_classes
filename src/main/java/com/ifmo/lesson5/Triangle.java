@@ -15,8 +15,9 @@ public class Triangle extends Shape{ //треугольник
     }
 
     @Override
-    public void CalculateArea(){
-        area=0.5*a*h;
-        System.out.println("Площадь фигуры " + name + " = " + area);
+    public double CalculateArea(){
+        //area=0.5*a*h;
+        //System.out.println("Площадь фигуры " + name + " = " + area);
+        return 0.5*a*h;
     }
 }

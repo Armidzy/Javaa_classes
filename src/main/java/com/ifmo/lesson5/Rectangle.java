@@ -14,8 +14,9 @@ public class Rectangle extends Shape{  //прямоугольник
     }
 
     @Override
-    public void CalculateArea(){
-        area=a*b;
-        System.out.println("Площадь фигуры " + name + " = " + area);
+    public double CalculateArea(){
+       // area=a*b;
+        //System.out.println("Площадь фигуры " + name + " = " + area);
+        return a*b;
     }
 }

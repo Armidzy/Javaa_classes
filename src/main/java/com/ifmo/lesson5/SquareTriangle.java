@@ -12,8 +12,9 @@ public class SquareTriangle extends Triangle{ //прямоугольный тр�
     }
 
     @Override
-    public void CalculateArea(){
-        area=0.5*a*h;
-        System.out.println("Площадь фигуры " + name + " = " + area);
+    public double CalculateArea(){
+        //area=0.5*a*h;
+        //System.out.println("Площадь фигуры " + name + " = " + area);
+        return  0.5*a*h;
     }
 }

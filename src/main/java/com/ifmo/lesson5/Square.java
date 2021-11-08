@@ -12,8 +12,9 @@ public class Square extends Rectangle{
     }
 
     @Override
-    public void CalculateArea(){
-        area=a*a;
-        System.out.println("Площадь фигуры " + name + " = " + area);
+    public double CalculateArea(){
+        //area=a*a;
+        //System.out.println("Площадь фигуры " + name + " = " + area);
+        return a*a;
     }
 }

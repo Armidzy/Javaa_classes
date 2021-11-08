@@ -12,8 +12,9 @@ public class Circle extends Oval{
     }
 
     @Override
-    public void CalculateArea(){
-        area=a*a*Math.PI;
-        System.out.println("Площадь фигуры " + name + " = " + area);
+    public double CalculateArea(){
+        //area=a*a*Math.PI;
+        //System.out.println("Площадь фигуры " + name + " = " + area);
+        return a*a*Math.PI;
     }
 }

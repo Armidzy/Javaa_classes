@@ -15,8 +15,9 @@ public class Oval extends Shape{
     }
 
     @Override
-    public void CalculateArea(){
-        area=a*b*Math.PI;
-        System.out.println("Площадь фигуры " + name + " = " + area);
+    public double CalculateArea(){
+        //area=a*b*Math.PI;
+        //System.out.println("Площадь фигуры " + name + " = " + area);
+        return a*b*Math.PI;
     }
 }

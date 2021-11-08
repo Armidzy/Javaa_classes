@@ -37,10 +37,12 @@ package com.ifmo.lesson4;
  * </pre>
  */
 public class Library {
+    private Shelf[] shelves; //ссылка на Book и колво одинаковых книг  || на полке лежат одинаковые книги
 
     public Library(int maxBookKinds) {
         // TODO implement
         // Возможно здесь следует сынициализировать массив.
+        shelves = new Shelf[maxBookKinds];
     }
 
     /**
@@ -51,7 +53,18 @@ public class Library {
      * @return {@code True} if book successfully added, {@code false} otherwise.
      */
     public boolean put(Book book, int quantity) {
-        // TODO implement
+        for (int i = 0; i < shelves.length; i++) {
+            Shelf shelf=shelves[i];//так сделали для удобства
+
+            if (shelf == null){ //мы делаем смещение при удалении ---> null только в конце
+                shelves[i]=new Shelf(book, quantity);
+                return  true;
+            }
+            else if (shelf.getBook().equals(book)){
+                shelf.setQuantity(shelf.getQuantity() + quantity);
+                return true;
+            }
+        }
 
         return false;
     }
@@ -65,7 +78,53 @@ public class Library {
      */
     public int take(Book book, int quantity) {
         // TODO implement
+        Shelf shelf=null;
+        for (int i = 0; i < shelves.length; i++){
+            if (shelves[i].equals(book)) {
+                shelf = shelves[i];
+                break;
+            }
+        }
 
-        return 0;
+        if (shelf== null)
+            return 0;
+        else if (shelf.getQuantity()>quantity){
+            return shelf.changeQuantity(quantity);
+        }
+        else if (shelf.getQuantity()==quantity){
+            deleteShelf(shelf);
+            return quantity;
+        }
+        else {
+            int a=shelf.getQuantity();
+            deleteShelf(shelf);
+            return a;
+        }
+    }
+    //1. пройтись по эл массива и найти соотв книгу book
+    // либо не найти
+    //1.1. если не нашли возвр 0
+    //1.2. если нашли, то из shelf.quantity вычитаем нужно колво книг
+    // Math.min(shelf.quantity, quantity)
+    //1.2.1. если удалили все книги, то удалить shelf из массива
+    //и сдвинуть System.arraycopy
+
+    //удаляет и сдвигает
+    private void deleteShelf( Shelf shelf){
+        for (int i = 0; i < shelves.length; i++) {
+            if (shelf.equals(shelves[i])){
+                for (int j = i; j < shelves.length-1; j++) {
+                    shelves[i]=shelves[i+1];
+                }
+                shelves[shelves.length]=null;
+                break;
+            }
+        }
+    }
+
+
+    private int find(Book book){
+
+        return 1;
     }
 }

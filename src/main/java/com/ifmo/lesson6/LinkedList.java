@@ -1,16 +1,18 @@
-package com.ifmo.lesson4;
+package com.ifmo.lesson6;
+
+import java.util.Iterator;
 
 /**
  * Односвязный список, где каждый предыдущий
  * элемент харнит ссылку на следующий. Список
  * оканчивается ссылкой со значением {@code null}.
  */
-public class LinkedList {
+public class LinkedList implements List, Stack, Queue {
     /** Ссылка на первый элемент списка. */
     private Item head;
 
-    /** Добавляет значение в конец списка.
-     * @param val Значение, которое будет добавлено.*/
+    /** {@inheritDoc} */
+    @Override
     public void add(Object val) {
         Item newItem = new Item(val);
         if (head == null)
@@ -27,13 +29,16 @@ public class LinkedList {
         }
     }
 
-    /**
-     * Извлекает значение из списка по индексу.
-     *
-     * @param i Индекс значения в списке.
-     * @return Значение, которое находится по индексу
-     * или {@code null}, если не найдено.
-     */
+    /** {@inheritDoc} */
+    @Override
+    public Object take() {
+        // TODO implement.
+
+        return null;
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public Object get(int i) {
         Item current = head;
         if (head == null)
@@ -48,13 +53,8 @@ public class LinkedList {
         return current.value;
     }
 
-    /**
-     * Удаляет значение по индексу и возвращает
-     * удаленный элемент.
-     *
-     * @param i Индекс, по которому будет удален элемент.
-     * @return Удаленное значение или {@code null}, если не найдено.
-     */
+    /** {@inheritDoc} */
+    @Override
     public Object remove(int i) {
         Item current = head;
         if (head == null)
@@ -75,5 +75,44 @@ public class LinkedList {
             current.next = del.next;
             return del.value;
         }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Iterator iterator() {
+        // TODO implement.
+
+        return null;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void push(Object value) {
+        Item newItem = new Item(value);
+        if (head == null)
+            head = newItem;
+        else{
+            Item current = head;
+            while (current != null){
+                if (current.next == null) {
+                    current.next = newItem;
+                    break;
+                }
+                current = current.next;
+            }
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Object pop() {
+        Item current=head;
+        while (current != null && current.next.next!=null){
+            current=current.next;
+        }
+        Item ret=current.next;
+        current.next=null;
+
+        return ret;
     }
 }
