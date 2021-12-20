@@ -15,52 +15,44 @@ import java.util.concurrent.ConcurrentMap;
 public class Bank extends Thread  {
     private ConcurrentMap<Long, Account> accMap = new ConcurrentHashMap<>();
 
-    public Account createAccount(long userId){
-        Account acc = new Account(userId);
-        accMap.put(userId, acc);
-        return acc;
+    public Account createAccount(long userId) throws RuntimeException {
+        if (!accMap.containsKey(userId)){
+            Account acc = new Account(userId);
+            accMap.put(userId, acc);
+            return acc;
+        }
+        else
+            throw new RuntimeException("Аккаунт с id " + userId + " уже существует");
+
     }
     //public double getAmount(long accId){}
     //public void blockAccoint(long accId){}
     //public boolean isAccountBlocked(long accId){}
 
-    public void changeAmount(long accId, double amount) throws RuntimeException{
-        synchronized (this) {
-            for (ConcurrentMap.Entry<Long, Account> entry : accMap.entrySet()) {
-                if (entry.getKey() == accId && !entry.getValue().isBlocked()) {
-                    if (entry.getValue().getAmount() + amount >= 0 )
-                        entry.getValue().addAmount(amount);
+    public synchronized void  changeAmount(long accId, double amount) throws RuntimeException{
+        Account acc=accMap.get(accId);
+                if (!acc.isBlocked()) {
+                    if (acc.getAmount() + amount >= 0 )
+                        acc.addAmount(amount);
                     else
-                        System.out.println("На счету недостаточно средств");
+                        throw new RuntimeException("На счету недостаточно средств. Баланс: " + acc.getAmount());
 
 
-                    /*
-                    try {
-                        entry.getValue().addAmount(amount);
-                    } catch (NoMoneyException e) {
-                        throw new NoMoneyException("На счету недостаточно средств");
-                    }
-                     */
+                    //в сообщ об ош больше инф класть (значение изза кот вылезла ошибка)
+                    //проверки на блокировку счета и на наличие средств вывести в отд метод
+
                 }
-
-            }
-        }
-    }
-
-    public void transferMoney(long srcAccId, long dstAccId, double amount) {
-        synchronized (this) {
-            for (ConcurrentMap.Entry<Long, Account> entry : accMap.entrySet()){
-
-                if(entry.getKey()==srcAccId){
-                    changeAmount(entry.getValue().getId(), -1*amount);
-                }
-
-                if(entry.getKey()==dstAccId){
-                    changeAmount(entry.getValue().getId(), amount);
-                }
-            }
-        }
 
 
     }
+
+    public synchronized void transferMoney(long srcAccId, long dstAccId, double amount) {
+        Account fromAcc=accMap.get(srcAccId);
+        Account toAcc=accMap.get(dstAccId);
+        changeAmount(fromAcc.getUserID(), -1*amount);
+        changeAmount(toAcc.getUserID(), amount);
+
+    }
+
+
 }
